@@ -1,10 +1,11 @@
+// components/FeatureCard.js
 import React from 'react';
 
 /**
  * FeatureCard Component
- * 
+ *
  * A reusable card component for displaying features with icons
- * 
+ *
  * @param {ReactElement} icon - Lucide-react icon component
  * @param {string} title - Feature title
  * @param {string} description - Feature description
@@ -13,17 +14,18 @@ import React from 'react';
  * @param {string} iconBgClass - Icon background color classes (default: "bg-gray-100")
  * @param {string} iconColorClass - Icon color classes (default: "text-gray-600")
  */
-const FeatureCard = ({ 
-  icon, 
-  title, 
-  description, 
-  bgColorClass = "bg-white", 
-  borderColorClass = "border-gray-200", 
-  iconBgClass = "bg-gray-100", 
-  iconColorClass = "text-gray-600" 
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+  bgColorClass = "bg-white",
+  borderColorClass = "border-gray-200",
+  iconBgClass = "bg-gray-100",
+  iconColorClass = "text-gray-600"
 }) => {
   return (
-    <div className={`${bgColorClass} rounded-2xl p-6 border ${borderColorClass} transition-all duration-300 hover:shadow-lg`}>
+    // Added h-full to ensure cards stretch in a grid
+    <div className={`${bgColorClass} rounded-2xl p-6 border ${borderColorClass} transition-all duration-300 hover:shadow-lg h-full`}>
       <div className={`w-12 h-12 rounded-lg ${iconBgClass} flex items-center justify-center mb-4`}>
         {icon && React.cloneElement(icon, { className: iconColorClass, size: 24 })}
       </div>

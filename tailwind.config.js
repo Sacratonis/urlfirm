@@ -24,6 +24,10 @@ module.exports = {
       addUtilities({
         '.hover-scale': {
           '@apply transition-transform duration-200 hover:scale-105': {}
+        },
+        // Optional: Utility class for centering a block element
+        '.center-block': {
+          '@apply mx-auto': {}
         }
       });
     }

@@ -1,15 +1,18 @@
+// components/Header.js
 import React from 'react';
-import { Link as LinkIcon } from 'lucide-react';
+// import { Link as LinkIcon } from 'lucide-react'; // Comment out or remove if replacing
 import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="py-8 px-4 sm:px-6 lg:px-8">
+    <header className="py-8 px-4 sm:px-6 lg:px-8 w-full">
+      {/* mx-auto centers this container horizontally within its parent (full width) */}
       <div className="max-w-7xl mx-auto text-center">
         <Link href="/" className="inline-block">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
-              <LinkIcon className="h-6 w-6 text-white" />
+            {/* Replace the icon div with an image tag */}
+            <div className="flex items-center justify-center">
+              <img src="/logo.png" alt="URLFirm Logo" className="h-12 w-auto" /> {/* Adjust h-12 for desired height */}
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               URLFirm

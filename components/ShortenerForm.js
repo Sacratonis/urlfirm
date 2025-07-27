@@ -14,7 +14,8 @@ export default function ShortenerForm({ onSubmit, loading }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto">
+    // mx-auto centers this form container horizontally, w-full ensures it behaves in flex/grid
+    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto w-full">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="url" className="block text-left text-sm font-medium text-gray-700 mb-2">

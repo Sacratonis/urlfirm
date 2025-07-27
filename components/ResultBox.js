@@ -1,9 +1,10 @@
 // components/ResultBox.js
 import { useState } from 'react';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check } from 'lucide-react'; // Removed Trash2, QrCode, Calendar
 import CopyButton from './CopyButton';
+// import QRCodeDisplay from './QRCodeDisplay'; // Comment out if using pre-generated QR
 
-export default function ResultBox({ result, onCopy }) {
+export default function ResultBox({ result, onCopy }) { // Removed onDelete, onReset props
   const [copied, setCopied] = useState(false);
 
   if (!result) {
@@ -17,9 +18,13 @@ export default function ResultBox({ result, onCopy }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // --- REMOVED: handleDelete function ---
+
   return (
-    <div className="mt-8 bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto animate-fade-in">
+    // mx-auto centers this box horizontally, w-full ensures it behaves in flex/grid
+    <div className="mt-8 bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto w-full animate-fade-in">
       <h2 className="text-xl font-semibold text-gray-900 mb-6 text-center">Your shortened link is ready!</h2>
+      {/* Changed layout back to single column as QR section is removed */}
       <div className="flex flex-col gap-8">
         <div className="flex-1">
           <div className="bg-gray-50 rounded-lg p-4 mb-4">
@@ -43,7 +48,7 @@ export default function ResultBox({ result, onCopy }) {
               {copied ? <Check size={20} className="mr-2 text-green-500" /> : <Copy size={20} className="mr-2" />}
               Copy Link
             </button>
-            {/* Delete button removed */}
+            {/* --- REMOVED: Delete Link Button --- */}
           </div>
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
             <p className="text-sm text-yellow-800">
@@ -54,7 +59,7 @@ export default function ResultBox({ result, onCopy }) {
             </p>
           </div>
         </div>
-        {/* QR Code section removed */}
+        {/* --- REMOVED: QR Code section --- */}
       </div>
       <style jsx>{`
         @keyframes fade-in {

@@ -1,34 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Remove Tailwind directives if not using Tailwind CSS */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* Remove Tailwind CSS directives if not using Tailwind/PostCSS */
+/* If you intend to use Tailwind, make sure your build process includes Tailwind via PostCSS. */
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Keep the gradient background */
   background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 50%, #fce7f3 100%);
+  /* Ensure body takes at least full viewport height */
   min-height: 100vh;
+  /* Use flexbox to manage layout */
+  display: flex;
+  flex-direction: column;
+  /* Align main content horizontally center */
+  align-items: center;
+  /* Justify content (e.g., push footer down) */
+  justify-content: flex-start; /* Adjust if you want vertical centering */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+  /* Removed the ::before pseudo-element for dot pattern to simplify layout */
 }
 
-/* Custom dot pattern background */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Ensure the root Next.js div takes full width and centers children */
+#__next {
   width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0.5px, transparent 0.5px),
-    radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0.5px, transparent 0.5px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  z-index: -1;
-  pointer-events: none;
+  flex: 1; /* Takes available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
 }
 
 input:focus,
@@ -50,6 +51,7 @@ a, button {
   transition-timing-function: ease-in-out;
 }
 
+/* Scrollbar styles (optional, kept as is) */
 ::-webkit-scrollbar-track {
   background: #f3f4f6;
   border-radius: 9999px;
@@ -76,4 +78,11 @@ a, button {
 
 .animate-fade-in {
   animation: fade-in 0.5s ease-out;
+}
+
+/* Optional: Utility class for centering block elements */
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

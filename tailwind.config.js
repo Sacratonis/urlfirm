@@ -1,12 +1,12 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-export default { // Changed to ES Module export
+module.exports = {
   content: [
     './components/**/*.{js,jsx,ts,tsx,mdx}',
     './pages/**/*.{js,jsx,ts,tsx,mdx}',
     './lib/**/*.{js,jsx,ts,tsx,mdx}',
     './styles/**/*.css',
-    './app/**/*.{js,jsx,ts,tsx,mdx}' // If you're using App Router
+    './app/**/*.{js,jsx,ts,tsx,mdx}'
   ],
   theme: {
     extend: {
@@ -19,7 +19,7 @@ export default { // Changed to ES Module export
     }
   },
   plugins: [
-    require('@tailwindcss/forms'), // Use require() for CommonJS
+    require('@tailwindcss/forms'),
     function({ addUtilities }) {
       addUtilities({
         '.hover-scale': {

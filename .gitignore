@@ -1,5 +1,12 @@
+# Environment variables
+.env*.local
+.env.production
+.env.development
+.env.test
+.env
+
 # Dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -24,12 +31,10 @@ yarn-error.log*
 
 # Local env files
 .env*.local
-.env.production
-.env.development
-.env.test
-.env
-.env.local # <-- Add this line to ignore .env.local
 
-# IDEs and editors
-.vscode
-.idea
+# Vercel
+.vercel/
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts

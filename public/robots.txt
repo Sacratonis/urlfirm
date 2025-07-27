@@ -5,7 +5,7 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
-Disallow: /deleted # Removed corresponding page
+Disallow: /deleted
 Disallow: /expired
 # Sitemaps
 Sitemap: https://urlfirm.com/sitemap.xml

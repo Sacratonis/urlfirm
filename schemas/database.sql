@@ -3,7 +3,6 @@
 -- Ensure the uuid-ossp extension is available for gen_random_uuid()
 -- Note: In Supabase, this is usually enabled by default.
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 -- Create the main table for storing shortened links
 -- Using 'shortened_links' table name and 'slug' column name as discussed
 CREATE TABLE IF NOT EXISTS shortened_links (
@@ -20,7 +19,6 @@ CREATE TABLE IF NOT EXISTS shortened_links (
     expires_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() + INTERVAL '7 days'
     -- Note: 'is_custom' column is removed in this schema version
 );
-
 -- Create indexes for performance
 -- Index on the 'slug' column for fast lookups by short code
 CREATE INDEX IF NOT EXISTS idx_links_slug ON shortened_links(slug);
@@ -29,7 +27,6 @@ CREATE INDEX IF NOT EXISTS idx_links_expires_at ON shortened_links(expires_at);
 -- Index on the 'delete_token' column for faster deletion verification
 -- (Though matching on both slug and token might be more common)
 CREATE INDEX IF NOT EXISTS idx_links_delete_token ON shortened_links(delete_token);
-
 -- Optional: Function to check if a link is expired
 -- This can be useful for direct SQL queries or views
 CREATE OR REPLACE FUNCTION is_link_expired(link_expires_at TIMESTAMP WITH TIME ZONE)
@@ -38,7 +35,6 @@ BEGIN
     RETURN link_expires_at < NOW();
 END;
 $$ LANGUAGE plpgsql;
-
 -- Comments for documentation (aligned with new schema)
 COMMENT ON TABLE shortened_links IS 'Stores shortened URLs with metadata for URLFirm (Supabase version)';
 COMMENT ON COLUMN shortened_links.id IS 'Unique identifier for the link';

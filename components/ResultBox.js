@@ -6,7 +6,6 @@ import CopyButton from './CopyButton';
 export default function ResultBox({ result, onCopy }) {
   const [copied, setCopied] = useState(false);
 
-  // Check if result exists before trying to access its properties
   if (!result) {
     return null;
   }
@@ -14,14 +13,14 @@ export default function ResultBox({ result, onCopy }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(result.shortUrl);
     setCopied(true);
-    if (onCopy) onCopy(); // Notify parent component
+    if (onCopy) onCopy();
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div className="mt-8 bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto animate-fade-in">
+    <div className="mt-8 bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto w-full animate-fade-in">
       <h2 className="text-xl font-semibold text-gray-900 mb-6 text-center">Your shortened link is ready!</h2>
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col gap-8">
         <div className="flex-1">
           <div className="bg-gray-50 rounded-lg p-4 mb-4">
             <div className="flex items-center justify-between">
@@ -41,15 +40,19 @@ export default function ResultBox({ result, onCopy }) {
               onClick={handleCopy}
               className="flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-colors"
             >
-              {copied ? <Check size={20} className="mr-2 text-green-500" aria-hidden="true" /> : <Copy size={20} className="mr-2" aria-hidden="true" />}
+              {copied ? <Check size={20} className="mr-2 text-green-500" /> : <Copy size={20} className="mr-2" />}
               Copy Link
             </button>
-            {/* Delete Button Removed */}
           </div>
-          {/* Delete Token Display Removed */}
-          {/* QR Code Section Removed */}
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+            <p className="text-sm text-yellow-800">
+              <span className="font-medium">Save this code:</span> {result.deleteToken}
+            </p>
+            <p className="text-xs text-yellow-700 mt-1">
+              Used internally for link management.
+            </p>
+          </div>
         </div>
-        {/* QR Code Section Removed */}
       </div>
       <style jsx>{`
         @keyframes fade-in {

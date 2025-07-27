@@ -16,7 +16,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    const link = await findLinkBySlug(slug);
+    // --- UPDATE: Select only necessary columns ---
+    const { data: link, error } = await findLinkBySlug(slug); // Destructure data
+
+    if (error) {
+        console.error('Database error fetching link:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
 
     if (!link) {
       return res.status(404).json({ error: 'Link not found.' });
@@ -24,7 +30,6 @@ export default async function handler(req, res) {
 
     const now = new Date();
     const expiresAt = new Date(link.expires_at);
-
     if (expiresAt < now) {
       // Link has expired
       return res.status(410).json({ error: 'Link has expired.' }); // 410 Gone
@@ -32,7 +37,6 @@ export default async function handler(req, res) {
 
     // Return the original URL for the client to handle the redirect
     return res.status(200).json({ original_url: link.original_url });
-
   } catch (error) {
     console.error('API Error in /api/redirect:', error);
     return res.status(500).json({ error: 'Internal Server Error' });

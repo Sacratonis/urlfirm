@@ -3,10 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    // Removed 'api.qrserver.com' as QR code feature is removed
-    domains: ['localhost', 'vercel.app'],
+    domains: ['localhost', 'vercel.app'], // Removed QR code API domain
   },
-  // Removed the `env` section to prevent potential confusion and rely on .env.local for NEXT_PUBLIC_ vars
+  env: {
+    SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,       // Updated to match .env.local
+    SUPABASE_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, // Updated to match .env.local and be more specific
+  },
   // Add security headers
   async headers() {
     return [
@@ -21,9 +23,19 @@ const nextConfig = {
             key: 'X-Frame-Options',
             value: 'DENY',
           },
+          // Optional: Add more security headers like CSP, Referrer-Policy, etc.
+          // {
+          //   key: 'Strict-Transport-Security',
+          //   value: 'max-age=63072000; includeSubDomains; preload',
+          // },
+          // {
+          //   key: 'X-XSS-Protection', // Considered deprecated but can be added for older browsers
+          //   value: '1; mode=block',
+          // },
         ],
       },
     ];
   },
 };
+
 export default nextConfig;

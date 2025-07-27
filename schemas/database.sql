@@ -1,6 +1,5 @@
 -- schemas/database_supabase.sql (Adapted for Supabase)
 -- Create shortened_links table for URLFirm
-
 -- Ensure the uuid-ossp extension is available for gen_random_uuid()
 -- Note: In Supabase, this is usually enabled by default.
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";

@@ -24,10 +24,9 @@ const FeatureCard = ({
   iconColorClass = "text-gray-600"
 }) => {
   return (
-    // Added h-full to ensure cards stretch in a grid
-    <div className={`${bgColorClass} rounded-2xl p-6 border ${borderColorClass} transition-all duration-300 hover:shadow-lg h-full`}>
+    <div className={`${bgColorClass} rounded-2xl p-6 border ${borderColorClass} transition-all duration-300 hover:shadow-lg`}>
       <div className={`w-12 h-12 rounded-lg ${iconBgClass} flex items-center justify-center mb-4`}>
-        {icon && React.cloneElement(icon, { className: iconColorClass, size: 24 })}
+        {icon && React.cloneElement(icon, { className: iconColorClass, size: 24, 'aria-hidden': "true" })}
       </div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>

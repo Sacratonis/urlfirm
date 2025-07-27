@@ -1,5 +1,4 @@
 // pages/[slug].js
-
 // Ensure this function in lib/db.js now uses Supabase and operates on the 'slug' column
 import { findLinkBySlug } from '../lib/db';
 
@@ -9,8 +8,16 @@ export async function getServerSideProps(context) {
 
   try {
     // --- UPDATE 1: findLinkBySlug now queries the 'slug' column ---
-    // The updated function returns the row data from the 'shortened_links' table
-    const link = await findLinkBySlug(slug);
+    // --- UPDATE 2: Select only necessary columns ---
+    const { data: link, error } = await findLinkBySlug(slug); // Destructure data
+
+    if (error) {
+        console.error('Database error fetching link:', error);
+        // Return 404 on system errors
+        return {
+          notFound: true,
+        };
+    }
 
     if (!link) {
       return {
@@ -19,10 +26,8 @@ export async function getServerSideProps(context) {
     }
 
     const now = new Date();
-    // --- UPDATE 2: Access 'expires_at' property from Supabase response ---
-    // Supabase returns column values as object properties with the same name
+    // --- UPDATE 3: Access 'expires_at' property from Supabase response ---
     const expiresAt = new Date(link.expires_at);
-
     if (expiresAt < now) {
       // Redirect to expired page
       return {
@@ -33,8 +38,7 @@ export async function getServerSideProps(context) {
       };
     }
 
-    // --- UPDATE 3: Access 'original_url' property from Supabase response ---
-    // Supabase returns column values as object properties with the same name
+    // --- UPDATE 4: Access 'original_url' property from Supabase response ---
     return {
       redirect: {
         destination: link.original_url,

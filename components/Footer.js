@@ -1,3 +1,4 @@
+// components/Footer.js
 import { Link as LinkIcon } from 'lucide-react';
 
 export default function Footer() {
@@ -7,11 +8,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-              <LinkIcon className="h-5 w-5 text-white" />
+              <LinkIcon className="h-5 w-5 text-white" aria-hidden="true" />
             </div>
             <span className="text-lg font-semibold text-gray-900">URLFirm</span>
           </div>
-          
           <div className="text-center md:text-right">
             <p className="text-gray-600 text-sm">
               © {new Date().getFullYear()} URLFirm. No cookies. No tracking. Just clean links.

@@ -1,6 +1,6 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default { // Changed to ES Module export
   content: [
     './components/**/*.{js,jsx,ts,tsx,mdx}',
     './pages/**/*.{js,jsx,ts,tsx,mdx}',
@@ -24,10 +24,6 @@ module.exports = {
       addUtilities({
         '.hover-scale': {
           '@apply transition-transform duration-200 hover:scale-105': {}
-        },
-        // Optional: Utility class for centering a block element
-        '.center-block': {
-          '@apply mx-auto': {}
         }
       });
     }

@@ -1,12 +1,11 @@
-// pages/index.js
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ShortenerForm from '../components/ShortenerForm';
 import ResultBox from '../components/ResultBox';
 import FeatureCard from '../components/FeatureCard';
-import { Shield, Clock } from 'lucide-react'; // Removed Trash2
+import { Shield, Clock, Link } from 'lucide-react';
 
 export default function Home() {
   const [result, setResult] = useState(null);
@@ -24,12 +23,10 @@ export default function Home() {
         },
         body: JSON.stringify({ longUrl, customAlias }),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || 'Failed to shorten URL');
       }
-
       const data = await response.json();
       setResult(data);
     } catch (err) {
@@ -40,16 +37,13 @@ export default function Home() {
     }
   };
 
-  // --- REMOVED: handleDelete function ---
-
   const handleCopySuccess = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    // Main flex container for the page, aligns items center
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 w-full flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       <Head>
         <title>URLFirm - Private, Fast, Zero Tracking URL Shortener</title>
         <meta
@@ -57,13 +51,9 @@ export default function Home() {
           content="Shorten your links without compromising your privacy. No cookies, no tracking, no data collection."
         />
       </Head>
-
       <Header />
-
-      {/* First Section: Hero and Form */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 w-full">
-        {/* Center content block horizontally */}
-        <div className="max-w-3xl mx-auto text-center animate-fade-in w-full">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-3xl mx-auto text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Private, fast, and zero tracking.<br />
             <span className="text-indigo-600">Your links — your rules.</span>
@@ -71,25 +61,18 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
             Shorten your links without compromising your privacy. No cookies, no tracking, no data collection.
           </p>
-          {/* ShortenerForm is centered by its own mx-auto */}
           <ShortenerForm onSubmit={handleSubmit} loading={loading} />
-          {/* ResultBox is centered by its own mx-auto */}
-          {/* onDelete prop removed */}
           <ResultBox result={result} onCopy={handleCopySuccess} />
         </div>
       </section>
-
-      {/* Second Section: Features */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white w-full">
-        {/* Center content block horizontally */}
-        <div className="max-w-7xl mx-auto animate-fade-in w-full">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto animate-fade-in">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why choose URLFirm?</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Privacy-first link shortening with powerful features
             </p>
           </div>
-          {/* Grid for feature cards, centered by parent mx-auto */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={<Shield />}
@@ -109,11 +92,10 @@ export default function Home() {
               iconBgClass="bg-purple-100"
               iconColorClass="text-purple-600"
             />
-            {/* Updated Feature Card to reflect internal management */}
             <FeatureCard
-              icon={<Clock />}
-              title="Managed Links"
-              description="Links expire automatically. Internal tokens manage link lifecycle."
+              icon={<Link />}
+              title="Simple Sharing"
+              description="Get clean, short links instantly. Perfect for sharing anywhere online."
               bgColorClass="bg-gradient-to-br from-pink-50 to-rose-50"
               borderColorClass="border-pink-100"
               iconBgClass="bg-pink-100"
@@ -122,7 +104,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

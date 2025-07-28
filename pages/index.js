@@ -1,7 +1,7 @@
 // pages/index.js
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Header from '../components/Header';
+// import Header from '../components/Header'; // Removed
 import Footer from '../components/Footer';
 import ShortenerForm from '../components/ShortenerForm';
 import ResultBox from '../components/ResultBox';
@@ -55,9 +55,9 @@ export default function Home() {
         />
       </Head>
 
-      <Header />
+      {/* Header removed */}
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 w-full">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl mx-auto text-center animate-fade-in w-full">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Private, fast, and zero tracking.<br />

@@ -6,7 +6,8 @@ import Footer from '../components/Footer';
 import ShortenerForm from '../components/ShortenerForm';
 import ResultBox from '../components/ResultBox';
 import FeatureCard from '../components/FeatureCard';
-import { Shield, Clock } from 'lucide-react';
+import { Shield, Clock, Link as LinkIcon } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   const [result, setResult] = useState(null);
@@ -59,10 +60,22 @@ export default function Home() {
 
       <section className="py-24 px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl mx-auto text-center animate-fade-in w-full">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          {/* Logo Section */}
+          <Link href="/" className="inline-block mb-8">
+            <div className="flex items-center justify-center space-x-3">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                <LinkIcon className="h-6 w-6 text-white" />
+              </div>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                URLFirm
+              </h1>
+            </div>
+          </Link>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Private, fast, and zero tracking.<br />
             <span className="text-indigo-600">Your links — your rules.</span>
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
             Shorten your links without compromising your privacy. No cookies, no tracking, no data collection.
           </p>

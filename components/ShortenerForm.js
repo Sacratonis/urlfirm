@@ -33,6 +33,7 @@ export default function ShortenerForm({ onSubmit, loading }) {
             />
           </div>
         </div>
+
         <div>
           <label htmlFor="alias" className="block text-left text-sm font-medium text-gray-700 mb-2">
             Custom alias (optional)
@@ -55,10 +56,15 @@ export default function ShortenerForm({ onSubmit, loading }) {
             Only lowercase letters, numbers, and hyphens allowed
           </p>
         </div>
+
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+          className={`w-full font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 disabled:cursor-not-allowed flex items-center justify-center ${
+            loading 
+              ? 'bg-gray-400 text-white cursor-not-allowed' 
+              : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+          }`}
         >
           {loading ? (
             <>

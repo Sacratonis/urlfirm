@@ -1,13 +1,13 @@
-# robots.txt for URLFirm - Privacy-First Link Shortener
-# https://urlfirm.com/robots.txt
+# robots.txt for URLFirm
 User-agent: *
 Allow: /
+
+# Disallow internal or non-public paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
 Disallow: /deleted
 Disallow: /expired
-# Sitemaps
-Sitemap: https://urlfirm.com/sitemap.xml
-# Crawl delay for polite indexing
-Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://www.urlfirm.com/sitemap.xml

@@ -31,16 +31,14 @@ export default function Footer() {
                 href="/terms" 
                 className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
               >
-                Terms of Service
+                Terms
               </Link>
-              <a 
-                href="https://github.com/your-username/urlfirm" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/about" 
                 className="text-gray-500 hover:text-indigo-600 text-sm transition-colors"
               >
-                GitHub
-              </a>
+                About
+              </Link>
             </div>
           </div>
         </div>

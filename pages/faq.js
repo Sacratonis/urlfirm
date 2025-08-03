@@ -68,7 +68,7 @@ export default function FAQ() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* SEO Meta Tags */}
-        <title>Frequently Asked Questions (FAQ) - URLFirm</title>
+        <title>Frequently Asked Questions (FAQ) - URLFIRM</title>
         <meta
           name="description"
           content="Answers to common questions about URLFirm's private, no-tracking URL shortening service. Learn about privacy, link expiration, custom aliases, and more."

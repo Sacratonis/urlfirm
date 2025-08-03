@@ -9,18 +9,18 @@ const ExpiredPage = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Link Expired - URLFirm",
-    "description": "This shortened link has expired as part of URLFirm's privacy protection. Links automatically expire after 7 days.",
+    "name": "Link Expired - URLFIRM",
+    "description": "This shortened link has expired as part of URLFIRM's privacy protection. Links automatically expire after 7 days.",
     "url": "https://www.urlfirm.com/expired"
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex flex-col">
       <Head>
-        <title>Link Expired - URLFirm</title>
+        <title>Link Expired - URLFIRM</title>
         <meta 
           name="description" 
-          content="This shortened link has expired after 7 days for privacy protection. Create a new short link with URLFirm." 
+          content="This shortened link has expired after 7 days for privacy protection. Create a new short link with URLFIRM." 
         />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://www.urlfirm.com/expired" />
@@ -62,7 +62,7 @@ const ExpiredPage = () => {
                 <Shield className="h-4 w-4 text-indigo-600" aria-hidden="true" />
                 <span className="text-sm font-medium text-indigo-900">Privacy Protection</span>
               </div>
-              <p className="text-sm text-indigo-800">Links on URLFirm automatically expire after 7 days to protect your privacy and reduce the risk of misuse.
+              <p className="text-sm text-indigo-800">Links on URLFIRM automatically expire after 7 days to protect your privacy and reduce the risk of misuse.
              </p>
            </div>
          </div>

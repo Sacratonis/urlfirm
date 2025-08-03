@@ -1,3 +1,4 @@
+// pages/_app.js
 import '../styles/globals.css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -44,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#6366f1" />
         
         {/* Default Open Graph tags */}
-        <meta property="og:site_name" content="URLFirm" />
+        <meta property="og:site_name" content="URLFIRM" /> {/* Updated OG site name */}
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         
@@ -53,8 +54,22 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" /> {/* Updated path */}
         
         {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" /> {/* Removed extra spaces */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /> {/* Removed extra spaces */}
+
+        {/* Google Analytics Tracking Code */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17426684558"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'AW-17426684558');
+            `,
+          }}
+        />
       </Head>
       
       <LoadingBar isLoading={isLoading} />

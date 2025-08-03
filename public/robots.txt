@@ -1,13 +1,80 @@
-# robots.txt for URLFirm
+# robots.txt for URLFirm - Private Link Shortener
+# Last updated: August 1, 2025
+
+# Allow all web crawlers to access all content
 User-agent: *
 Allow: /
 
-# Disallow internal or non-public paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /deleted
-Disallow: /expired
+# Explicitly allow important bots
+User-agent: Googlebot
+Allow: /
 
-# Sitemap
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow admin and API endpoints from crawling
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /signup/
+
+# Disallow temporary or test pages
+Disallow: /test/
+Disallow: /temp/
+Disallow: /staging/
+
+# Allow but don't prioritize these paths
+# (crawlers can access but we don't actively promote them)
+Allow: /privacy
+Allow: /terms
+Allow: /about
+Allow: /contact
+Allow: /faq
+
+# Block malicious bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Crawl delay for respectful crawling (optional)
+# Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.urlfirm.com/sitemap.xml
+
+# Additional sitemap for dynamic content (if needed)
+# Sitemap: https://www.urlfirm.com/sitemap-links.xml
+
+# Host directive (helps with canonical issues)
+Host: https://www.urlfirm.com

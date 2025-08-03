@@ -30,7 +30,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'DENY', // Removed trailing space
           },
           {
             key: 'X-XSS-Protection',
@@ -72,7 +72,8 @@ const nextConfig = {
 
   // --- Environment Variables ---
   env: {
-    SITE_URL: process.env.SITE_URL || 'https://www.urlfirm.com',
+    // Removed trailing spaces
+    SITE_URL: process.env.SITE_URL || 'https://www.urlfirm.com', 
   },
 
   // --- Internationalization (i18n) - Optional ---

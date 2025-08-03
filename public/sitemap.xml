@@ -1,15 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.urlfirm.com/</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.urlfirm.com/expired</loc>
-    <lastmod>2025-04-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Homepage - Highest Priority -->
+<url>
+<loc>https://www.urlfirm.com/</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://www.urlfirm.com/og-image.jpg</image:loc>
+<image:caption>URLFirm - Private Link Shortener</image:caption>
+<image:title>URLFirm Homepage</image:title>
+</image:image>
+</url>
+
+<!-- Privacy Policy -->
+<url>
+<loc>https://www.urlfirm.com/privacy-policy</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<!-- Terms of Service -->
+<url>
+<loc>https://www.urlfirm.com/terms-of-service</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<!-- About Page -->
+<url>
+<loc>https://www.urlfirm.com/about</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<!-- FAQ Page -->
+<url>
+<loc>https://www.urlfirm.com/faq</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<!-- Blog Section (if you plan to add it) -->
+<url>
+<loc>https://www.urlfirm.com/blog</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.6</priority>
+</url>
+
+<!-- Contact Page -->
+<url>
+<loc>https://www.urlfirm.com/contact</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<!-- API Documentation (if public) -->
+<url>
+<loc>https://www.urlfirm.com/api-docs</loc>
+<lastmod>2025-08-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.4</priority>
+</url>
+
 </urlset>
